@@ -1,6 +1,6 @@
 # BambooHR Script
 
-A script to get information from BambooHR's API.
+A node script to get information from BambooHR's API.
 
 ## Usage
 
