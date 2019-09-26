@@ -3,6 +3,10 @@
 const { exec } = require('child_process');
 const { BAMBOO_HR_API_KEY, BAMBOO_HR_ORG } = process.env;
 
+function getSingularJobTitle(jobTitle) {
+  return jobTitle[jobTitle.length - 1] === "s" ? jobTitle.slice(0, -1) : jobTitle;
+}
+
 function getEmployessByJobTitle(jobTitle, employees) {
   return employees.reduce((employeesWithRole, employee) => {
     if (employee.jobTitle.toLowerCase().indexOf(jobTitle.toLowerCase()) > -1) {
@@ -32,8 +36,9 @@ function getBambooHRData(callback, jobTitle) {
 
 switch(process.argv[2]) {
   case "whoare":
-    console.log("Who has the job title '" + process.argv[3] + "'?\n");
-    getBambooHRData(processResult, process.argv[3]);
+    const singularJobTitle = getSingularJobTitle(process.argv[3]);
+    console.log(`People who are "${singularJobTitle}s" are:\n`);
+    getBambooHRData(processResult, singularJobTitle);
     break;
   default:
     console.log("Invalid Command\n");
