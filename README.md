@@ -5,7 +5,7 @@ A script to get information from BambooHR's API.
 ## Usage
 
 1. Clone this repo
-2. Set environement variables for BAMBOO_HR_API_KEY and BAMBOO_HR_ORG
+2. Set environement variables for `BAMBOO_HR_API_KEY` and `BAMBOO_HR_ORG`
 
 Ex. In you `.bash_profile`, add:
 ```bash
