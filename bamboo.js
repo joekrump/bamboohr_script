@@ -5,7 +5,7 @@ const { BAMBOO_HR_API_KEY, BAMBOO_HR_ORG } = process.env;
 
 function getEmployessByJobTitle(jobTitle, employees) {
   return employees.reduce((employeesWithRole, employee) => {
-    if (employee.jobTitle.toLowerCase() === jobTitle.toLowerCase()) {
+    if (employee.jobTitle.toLowerCase().indexOf(jobTitle.toLowerCase()) > -1) {
       employeesWithRole.push(employee.displayName);
     }
 
